@@ -10,11 +10,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
-      <body suppressHydrationWarning={true}>
-        <MantineProvider withGlobalStyles withNormalizeCSS>
-          {children}
-        </MantineProvider>
+      <body>
+        <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
   );
