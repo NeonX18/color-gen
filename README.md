@@ -22,4 +22,4 @@ Built with:
 
 ## 📸 Preview
 
-(![image](https://github.com/user-attachments/assets/59fe2fcf-cf4e-4a33-86b6-1bb186195582))
+![image](https://github.com/user-attachments/assets/59fe2fcf-cf4e-4a33-86b6-1bb186195582)
