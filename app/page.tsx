@@ -10,7 +10,7 @@ import {
   Tooltip,
   Divider,
 } from "@mantine/core";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const fgColors = [
   { name: "Red", code: "31", hex: "#ff5555" },
@@ -37,6 +37,10 @@ export default function HomePage() {
   const [currentStyle, setCurrentStyle] = useState<
     Partial<CSSStyleDeclaration>
   >({});
+
+  useEffect(() => {
+    editorRef.current?.focus();
+  }, []);
 
   const applyStyleToSelectionOrTyping = (
     newStyle: Partial<CSSStyleDeclaration>
@@ -100,7 +104,7 @@ export default function HomePage() {
 
         if (style.fontWeight === "700" || style.fontWeight === "bold")
           codes.push("1");
-        if (style.textDecoration.includes("underline")) codes.push("4");
+        if (style.textDecorationLine.includes("underline")) codes.push("4");
 
         const currentAnsi = `\u001b[${codes.join(";")}m`;
 
@@ -133,7 +137,7 @@ export default function HomePage() {
 
   return (
     <Container size="md" pt="xl">
-      <Title align="center" mb="lg">
+      <Title style={{ textAlign: "center" }} mb="lg">
         Discord Text Editor
       </Title>
 
@@ -155,7 +159,7 @@ export default function HomePage() {
 
       <Stack spacing="xs">
         <Group spacing="xs">
-          <Text>FrontGround Color:</Text>
+          <Text>Foreground:</Text>
           {fgColors.map((color) => (
             <Tooltip label={color.name} key={color.code}>
               <Button
@@ -169,7 +173,7 @@ export default function HomePage() {
         </Group>
 
         <Group spacing="xs">
-          <Text>BackGround Color:</Text>
+          <Text>Background:</Text>
           {bgColors.map((color) => (
             <Tooltip label={color.name} key={color.code}>
               <Button
@@ -194,6 +198,7 @@ export default function HomePage() {
         ref={editorRef}
         contentEditable
         suppressContentEditableWarning
+        placeholder="Type your text here..."
         style={{
           backgroundColor: "#1e1e1e",
           padding: "1rem",
@@ -202,11 +207,12 @@ export default function HomePage() {
           fontFamily: "monospace",
           color: "#fff",
           whiteSpace: "pre-wrap",
+          outline: "none",
         }}
       />
 
       <Button fullWidth mt="md" onClick={handleCopy}>
-        Copy text as Discord formatted
+        Copy as Discord Text
       </Button>
     </Container>
   );
