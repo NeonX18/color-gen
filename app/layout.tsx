@@ -15,9 +15,11 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning={true}>
         <MantineProvider
-          defaultColorScheme="dark"
           withGlobalStyles
           withNormalizeCSS
+          theme={{
+            colorScheme: "dark",
+          }}
         >
           {children}
         </MantineProvider>
