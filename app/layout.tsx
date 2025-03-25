@@ -1,10 +1,7 @@
+"use client";
+
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import "@mantine/core/styles.css";
-
-export const metadata = {
-  title: "Discord Text Editor",
-  description: "Custom Discord color generator",
-};
 
 export default function RootLayout({
   children,
@@ -12,15 +9,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en">
       <head>
-        <ColorSchemeScript />
+        <ColorSchemeScript defaultColorScheme="dark" />
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <MantineProvider
+          defaultColorScheme="dark"
           withGlobalStyles
           withNormalizeCSS
-          theme={{ colorScheme: "dark" }} // or 'light' or dynamic
         >
           {children}
         </MantineProvider>
