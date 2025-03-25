@@ -141,7 +141,7 @@ export default function HomePage() {
         Discord Text Editor
       </Title>
 
-      <Group position="center" mb="xs">
+      <Group justify="center" mb="xs">
         <Button onClick={resetAll}>Reset</Button>
         <Button
           onClick={() => applyStyleToSelectionOrTyping({ fontWeight: "bold" })}
@@ -157,8 +157,8 @@ export default function HomePage() {
         </Button>
       </Group>
 
-      <Stack spacing="xs">
-        <Group spacing="xs">
+      <Stack gap="xs">
+        <Group gap="xs">
           <Text>Foreground:</Text>
           {fgColors.map((color) => (
             <Tooltip label={color.name} key={color.code}>
@@ -172,7 +172,7 @@ export default function HomePage() {
           ))}
         </Group>
 
-        <Group spacing="xs">
+        <Group gap="xs">
           <Text>Background:</Text>
           {bgColors.map((color) => (
             <Tooltip label={color.name} key={color.code}>
