@@ -198,7 +198,6 @@ export default function HomePage() {
         ref={editorRef}
         contentEditable
         suppressContentEditableWarning
-        placeholder="Type your text here..."
         style={{
           backgroundColor: "#1e1e1e",
           padding: "1rem",
